@@ -2,7 +2,7 @@ package shape;
 
 import shape.Shape;
 
-public class Triangle extends Shape {
+public class Triangle extends Shape implements ShapeInterface {
     private int base,height;
 
     public Triangle( int base, int height,String color) {
@@ -14,16 +14,6 @@ public class Triangle extends Shape {
     @Override
     public double getArea() {
         return (double) (base * height) /2;
-    }
-
-
-    @Override
-    public String toString() {
-        return "shape.Triangle{" +
-                "base=" + base +
-                ", height=" + height +
-                ", color="+getColor() +
-                '}';
     }
 
     public int getBase() {
@@ -41,5 +31,19 @@ public class Triangle extends Shape {
 
     public void setHeight(int height) {
         this.height = height;
+    }
+
+    @Override
+    public String toString() {
+        return "Triangle{" +
+                "base=" + base +
+                ", height=" + height +
+                ", color="+getColor()+
+                '}';
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Draw a Triangle");
     }
 }

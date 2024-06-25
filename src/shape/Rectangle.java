@@ -2,11 +2,18 @@ package shape;
 
 import shape.Shape;
 
-public class Rectangle extends Shape {
+public class Rectangle extends Shape  {
     private int length,width;
+
+    public Rectangle(int length, int width,String color) {
+        super(color);
+        this.length = length;
+        this.width = width;
+    }
+
     @Override
     public double getArea() {
-        return length*width;
+        return (double) length*width;
     }
 
     public int getLength() {
@@ -24,11 +31,6 @@ public class Rectangle extends Shape {
         this.width = width;
     }
 
-    public Rectangle(int length, int width,String color) {
-        super(color);
-        this.length = length;
-        this.width = width;
-    }
 
     @Override
     public String toString() {
@@ -39,4 +41,12 @@ public class Rectangle extends Shape {
                 '}';
     }
 
+    public boolean isLengthMultipleOfWidth(){
+        return length%width ==0;
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Draw a Rectangle");
+    }
 }

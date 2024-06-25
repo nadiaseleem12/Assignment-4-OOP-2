@@ -1,16 +1,14 @@
 package person;
 
-import person.Person;
-
 import java.util.ArrayList;
 
-public class Student extends Person {
+public class Student2 extends Person {
 
 //    private ArrayList<String> courses= new ArrayList<>();
 //    private ArrayList<Integer> grades= new ArrayList<>();
     private ArrayList<Course> courses = new ArrayList<>();
 
-    public Student(String name,String address){
+    public Student2(String name, String address){
         super(name,address);
     }
 
@@ -24,21 +22,20 @@ public class Student extends Person {
     }
 
 
-    public void addCourseGrade(Course course, int grade) {
+    public void addCourseGrade(Course course) {
         if (course == null)
             return;
 
-        if (courses.contains(course)) {
-            int index = courses.indexOf(course);
-            courses.get(index).setGrade(grade);
+       for (Course registeredCourse:courses)
+           if (registeredCourse.getName().equals(course.getName())) {
+               registeredCourse.setGrade(course.getGrade());
+               return;
+           }
 
-        } else {
-            course.setGrade(grade);
-            courses.add(course);
-        }
+       courses.add(course);
     }
 
-    void printGrades(){
+   public void printGrades(){
        for (int i=0;i<courses.size();i++)
            System.out.println("course "+courses.get(i)+": "+courses.get(i).getGrade());
     }
