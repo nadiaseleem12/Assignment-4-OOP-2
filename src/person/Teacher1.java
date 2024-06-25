@@ -6,12 +6,14 @@ public class Teacher1 extends Person{
     private String [] courses;
     public Teacher1(String name,String address,String[] courses,int totalCourses){
         super(name,address);
-        this.courses = courses;
 
         if (courses==null){
             totalCourses = totalCourses<0 ? 10 : totalCourses;
             this.courses = new String[totalCourses];
+            numOfCourses=0;
+
         }else {
+            this.courses = courses;
             for (String course : courses) {
                 if (course != null)
                     numOfCourses++;
